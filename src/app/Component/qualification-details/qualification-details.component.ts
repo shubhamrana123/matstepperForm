@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,FormBuilder,FormArray,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-qualification-details',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qualification-details.component.css']
 })
 export class QualificationDetailsComponent implements OnInit {
-
-  constructor() { }
+qualificationDetailsForm:FormGroup =this.formbuilder.group({
+highestDegree:['',Validators.required],
+year:['', Validators.required]
+})
+submitted=false;
+  constructor(private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
   }
-
+submit(){
+this.submitted=true;
+}
+get f(){
+  return this.qualificationDetailsForm.controls
+}
 }

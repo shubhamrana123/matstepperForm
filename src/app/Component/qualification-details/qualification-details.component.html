@@ -1,1 +1,18 @@
-<p>qualification-details works!</p>
+<form [formGroup]="qualificationDetailsForm" (ngSubmit)="submit()">
+    <div class="formGroup">
+        <label for=""> Highest Degree</label> <br>
+        <input type="text" formControlName="highestDegree"> <br>
+        <div *ngIf="submitted && f.highestDegree.errors">
+            <div *ngIf="f.highestDegree.errors.required"> Highest Degree is Required</div>
+        </div>
+    </div>
+    <div class="formGroup">
+        <label >Year</label> <br>
+        <input type="text" formControlName="year"> <br>
+        <div *ngIf="submitted && f.year.errors">
+            <div f.year.errors.required> Years is Required</div> <br>
+        </div>
+    </div>
+    <button type="button">Previous</button>
+    <button>Next</button>
+</form>

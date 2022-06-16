@@ -2,19 +2,19 @@
     <label for="">FirstName</label> <br>
     <input type="text" formControlName="firstName"> <br>
     <div *ngIf="submitted &&  f.firstName.errors">
-        <div *ngIf="f.firstName.errors.required"></div>
+        <div *ngIf="f.firstName.errors.required">FirstName is Required</div>
     </div>
     <label for="">LastName</label> <br>
     <input type="text" formControlName="lastName"> <br>
     <label for="">Email</label> <br>
     <input type="text" formControlName="email"> <br> 
     <div *ngIf="submitted &&  f.email.errors">
-        <div *ngIf="f.email.errors.required"></div>
+        <div *ngIf="f.email.errors.required">Email is Required</div>
     </div>
     <label for="">Phone Number</label> <br>
     <input type="text" formControlName="phoneNo"> <br>
     <div *ngIf="submitted &&  f.phoneNo.errors">
-        <div *ngIf="f.phoneNo.errors.required"></div>
+        <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
     </div>
     <button type="submit"> Next</button>
 </form>

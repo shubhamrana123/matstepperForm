@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QualificationDetailsComponent } from './Component/qualification-details/qualification-details.component';
 import { PreviewComponent } from './Component/preview/preview.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { PreviewComponent } from './Component/preview/preview.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

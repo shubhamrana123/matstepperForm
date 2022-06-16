@@ -1,1 +1,74 @@
-<p>preview works!</p>
+<form [formGroup]='previewForm' (ngSubmit)="submit()">
+    <h1>Basic Details</h1>
+    <div class="formGroup">
+    <label for="">FirstName</label> <br>
+    <input type="text" formControlName="firstName"> <br>
+    <div *ngIf="submitted &&  f.firstName.errors">
+        <div *ngIf="f.firstName.errors.required">FirstName is Required</div>
+    </div>
+</div>
+    <div class="formGroup">
+    <label for="">LastName</label> <br>
+    <input type="text" formControlName="lastName"> <br>
+</div>
+    <div class="formGroup">
+    <label for="">Email</label> <br>
+    <input type="text" formControlName="email"> <br> 
+    <div *ngIf="submitted &&  f.email.errors">
+        <div *ngIf="f.email.errors.required">Email is Required</div>
+    </div>
+</div>
+    <div class="formGroup">
+    <label for="">Phone Number</label> <br>
+    <input type="text" formControlName="phoneNo"> <br>
+    <div *ngIf="submitted &&  f.phoneNo.errors">
+        <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
+    </div>
+</div>
+<h1>Address</h1>
+    <div class="formGroup">
+        <label for="">Address</label>
+        <input type="text" formControlName="address">
+        <div *ngIf="submitted && f.address.errors">
+            <div *ngIf="f.address.errors.required">Address is Required </div>
+        </div>
+    </div>
+    <div class="formGroup">
+        <label for="">City</label>
+        <input type="text" formControlName="city">
+        <div *ngIf="submitted && f.city.errors">
+            <div *ngIf="f.city.errors.required"> City is Required</div>
+        </div>
+    </div>
+    <div class="formGroup">
+        <label for="">State</label>
+        <input type="text" formControlName="state">
+        <div *ngIf="submitted && f.state.errors">
+            <div *ngIf="f.state.errors.required"> State is Required</div>
+        </div>
+    </div>
+    <div class="formGroup">
+        <label for="">Pincode</label>
+        <input type="text" formControlName="pincode">
+        <div *ngIf="submitted && f.state.errors">
+            <div *ngIf="f.state.errors.required"> Pincode is Required</div>
+        </div>
+    </div>
+    <h1>Qualification</h1>
+    <div class="formGroup">
+        <label for=""> Highest Degree</label> <br>
+        <input type="text" formControlName="highestDegree"> <br>
+        <div *ngIf="submitted && f.highestDegree.errors">
+            <div *ngIf="f.highestDegree.errors.required"> Highest Degree is Required</div>
+        </div>
+    </div>
+    <div class="formGroup">
+        <label >Year</label> <br>
+        <input type="text" formControlName="year"> <br>
+        <div *ngIf="submitted && f.year.errors">
+            <div f.year.errors.required> Years is Required</div> <br>
+        </div>
+    </div>
+    <button type="button">Previous</button>
+    <button>Submit</button>
+</form>
