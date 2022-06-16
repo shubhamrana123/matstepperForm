@@ -9,6 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QualificationDetailsComponent } from './Component/qualification-details/qualification-details.component';
 import { PreviewComponent } from './Component/preview/preview.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { UserDetailsComponent } from './Component/user-details/user-details.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,14 +22,20 @@ import {MatStepperModule} from '@angular/material/stepper';
     AddressDetailsComponent,
  
     QualificationDetailsComponent,
-    PreviewComponent
+    PreviewComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<form [formGroup]="basicDetailsForm" (ngSubmit)="submit()">
+<!-- <form [formGroup]="basicDetailsForm" (ngSubmit)="submit()">
     <label for="">FirstName</label> <br>
     <input type="text" formControlName="firstName"> <br>
     <div *ngIf="submitted &&  f.firstName.errors">
@@ -7,7 +7,7 @@
     <label for="">LastName</label> <br>
     <input type="text" formControlName="lastName"> <br>
     <label for="">Email</label> <br>
-    <input type="text" formControlName="email"> <br> 
+    <input type="text" formControlName="email"> <br>
     <div *ngIf="submitted &&  f.email.errors">
         <div *ngIf="f.email.errors.required">Email is Required</div>
     </div>
@@ -17,4 +17,90 @@
         <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
     </div>
     <button type="submit"> Next</button>
-</form>
+</form> -->
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="basicDetailsForm">
+      <form [formGroup]="basicDetailsForm" (ngSubmit)="submit()">
+        <ng-template matStepLabel>Basic Information</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>FirstName</mat-label>
+          <input matInput placeholder="First name" formControlName="firstName" required>
+         </mat-form-field>
+         <div *ngIf="submitted &&  f.firstName.errors">
+            <div *ngIf="f.firstName.errors.required">FirstName is Required</div>
+        </div>
+        <mat-form-field appearance="fill">
+            
+            <mat-label>LastName</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastName" required>
+ </mat-form-field>
+ <mat-form-field appearance="fill">
+            
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="email" required>
+</mat-form-field>
+<div *ngIf="submitted &&  f.email.errors">
+    <div *ngIf="f.email.errors.required">Email is Required</div>
+</div> <br>
+<mat-form-field appearance="fill">
+            
+    <mat-label>Phone Number</mat-label>
+    <input matInput placeholder="Phone Number" formControlName="phoneNo" required>
+</mat-form-field>
+<div *ngIf="submitted &&  f.phoneNo.errors">
+    <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
+</div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+ <!-- vertical stepper -->
+
+
+ <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="basicDetailsForm">
+      <form [formGroup]="basicDetailsForm" (ngSubmit)="submit()">
+        <ng-template matStepLabel>Basic Details</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>FirstName</mat-label>
+          <input matInput placeholder=" First name" formControlName="firstName" required>
+        </mat-form-field>
+        <div *ngIf="submitted &&  f.firstName.errors">
+            <div *ngIf="f.firstName.errors.required">FirstName is Required</div>
+        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>LastName</mat-label>
+            <input matInput placeholder="Last name" formControlName="lastName" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" required>
+          </mat-form-field>
+          <div *ngIf="submitted &&  f.email.errors">
+            <div *ngIf="f.email.errors.required">Email is Required</div>
+        </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput placeholder="Phone Number" formControlName="phoneNo" required>
+          </mat-form-field>
+          <div *ngIf="submitted &&  f.phoneNo.errors">
+            <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
+        </div>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+  
+  </mat-stepper> -->
+  
+

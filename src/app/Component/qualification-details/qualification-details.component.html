@@ -1,4 +1,4 @@
-<form [formGroup]="qualificationDetailsForm" (ngSubmit)="submit()">
+<!-- <form [formGroup]="qualificationDetailsForm" (ngSubmit)="submit()">
     <div class="formGroup">
         <label for=""> Highest Degree</label> <br>
         <input type="text" formControlName="highestDegree"> <br>
@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="formGroup">
-        <label >Year</label> <br>
+        <label>Year</label> <br>
         <input type="text" formControlName="year"> <br>
         <div *ngIf="submitted && f.year.errors">
             <div f.year.errors.required> Years is Required</div> <br>
@@ -15,4 +15,34 @@
     </div>
     <button type="button">Previous</button>
     <button>Next</button>
-</form>
+</form> -->
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper  [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="qualificationDetailsForm">
+      <form [formGroup]="qualificationDetailsForm" (ngSubmit)="submit()">
+        <ng-template matStepLabel>QualiFication Details</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Highest Degree</mat-label>
+          <input matInput placeholder="Highest Degree" formControlName="highestDegree" required>
+         </mat-form-field>
+         <div *ngIf="submitted &&  f.highestDegree.errors">
+            <div *ngIf="f.highestDegree.errors.required">Highest Degree is Required</div>
+        </div>
+        <mat-form-field appearance="fill">
+            
+            <mat-label>Year</mat-label>
+            <input matInput placeholder="Year" formControlName="year" required>
+ </mat-form-field>
+ <div *ngIf="submitted &&  f.year.errors">
+    <div *ngIf="f.year.errors.required">Year is Required</div>
+</div>
+ 
+
+        <div>
+            <button mat-button matStepperPrevious type="button">Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
