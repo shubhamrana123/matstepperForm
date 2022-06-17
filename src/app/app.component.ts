@@ -38,7 +38,7 @@ export class AppComponent {
   //   return this.QualificationDetailsComponent ? this.QualificationDetailsComponent.qualificationDetailsForm: null;
   // }
   // get step4() {
-  //   return this.previewComponent ? this.previewComponent.pre: null;
+  //   return this.previewComponent ? this.previewComponent.previewForm: null;
   // }
 }
 

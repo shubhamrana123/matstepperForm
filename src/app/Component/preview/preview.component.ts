@@ -25,30 +25,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./preview.component.css']
 })
 export class PreviewComponent implements OnInit {
-  // submitted = false;
-  // isLinear=false;
-  // previewForm: FormGroup = this.formbuilder.group({
-  //   firstName: ['', Validators.required],
-  //   lastName: [''],
-  //   email: ['', Validators.required],
-  //   phoneNo: ['', Validators.required],
-  //   address: ['', Validators.required],
-  //   city: ['', Validators.required],
-  //   state: ['', Validators.required],
-  //   pincode: ['', Validators.required],
-  //   highestDegree: ['', Validators.required],
-  //   year: ['', Validators.required]
-  // })
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','address'];
+  submitted = false;
+  isLinear=false;
+  previewForm: FormGroup = this.formbuilder.group({
+    firstName: ['', Validators.required],
+    lastName: [''],
+    email: ['', Validators.required],
+    phoneNo: ['', Validators.required],
+    address: ['', Validators.required],
+    city: ['', Validators.required],
+    state: ['', Validators.required],
+    pincode: ['', Validators.required],
+    highestDegree: ['', Validators.required],
+    year: ['', Validators.required]
+  })
+  displayedColumns: string[] = ['position', 'firstName', 'lastName', 'email','address','phoneNo','city','state','pincode','highestDegree','year'];
   dataSource = ELEMENT_DATA;
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
   }
-  // submit() {
-  //   this.submitted = true;
-  // }
-  // get f() {
-  //   return this.previewForm.controls;
-  // }
+  submit() {
+    this.submitted = true;
+  }
+  get f() {
+    return this.previewForm.controls;
+  }
 }

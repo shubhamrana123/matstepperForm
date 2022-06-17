@@ -15,7 +15,9 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { StepperoverviewComponent } from './Component/stepperoverview/stepperoverview.component';
 @NgModule({
+  entryComponents: [StepperoverviewComponent],
   declarations: [
     AppComponent,
     BasicDetailsComponent,
@@ -23,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
  
     QualificationDetailsComponent,
     PreviewComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    StepperoverviewComponent
   ],
   imports: [
     BrowserModule,

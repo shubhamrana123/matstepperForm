@@ -54,7 +54,8 @@
     <div *ngIf="f.phoneNo.errors.required">Phone Number is Required</div>
 </div>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <!-- <button  mat-button matStepperNext>Next</button> -->
+          <button type="button" (click)="goForward(stepper)" matStepperNext >Next</button>
         </div>
       </form>
     </mat-step>
@@ -103,4 +104,4 @@
   
   </mat-stepper> -->
   
-
+<app-address-details [parentData]="parentValue" (childData)="childMessage=$event"></app-address-details>
