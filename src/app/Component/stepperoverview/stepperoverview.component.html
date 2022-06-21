@@ -1,3 +1,4 @@
+
 <div class="container" fxLayout="row" fxLayoutAlign="center none">
     <div fxFlex="98%">
       <mat-card class="booking-card">
@@ -12,15 +13,16 @@
                 <mat-step [stepControl]="step1">
   
                   <ng-template matStepLabel>Basic Information</ng-template>
-               <app-basic-details></app-basic-details>
+               <app-basic-details (onDataChange)="userData=$event"></app-basic-details>
+
                <button (click)="nextTab(stepper)">Next</button>
-               
+
                 </mat-step>
   
                 <mat-step [stepControl]="step2">
   
                   <ng-template matStepLabel>Address</ng-template>
-                 <app-address-details></app-address-details>
+                 <app-address-details (childData)="addressData=$event"></app-address-details>
                  <button (click)="previousTab(stepper)">Previous</button>
                  <button (click)="nextTab(stepper)">Next</button>
                 </mat-step>
@@ -28,7 +30,7 @@
                 <mat-step [stepControl]="step3">
   
                   <ng-template matStepLabel>QualiFication Details</ng-template>
-                <app-qualification-details></app-qualification-details>
+                <app-qualification-details (childData)="qualificationValue=$event"></app-qualification-details>
                 <button (click)="previousTab(stepper)">Previous</button>
                 <button (click)="nextTab(stepper)">Next</button>
                 </mat-step>
@@ -36,7 +38,7 @@
                   <mat-step [stepControl]="step4">
   
                     <ng-template matStepLabel>Preview</ng-template>
-                  <app-preview></app-preview>
+                  <app-preview [parentData]="allFormData"></app-preview>
                   <button (click)="previousTab(stepper)">Previous</button>
                   <button >Submit</button>
                   </mat-step>
@@ -50,3 +52,4 @@
   
     </div>
   </div>
+{{userData}}

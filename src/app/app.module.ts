@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { QualificationDetailsComponent } from './Component/qualification-details/qualification-details.component';
 import { PreviewComponent } from './Component/preview/preview.component';
 import {MatStepperModule} from '@angular/material/stepper';
-import { UserDetailsComponent } from './Component/user-details/user-details.component';
+// import { UserDetailsComponent } from './Component/user-details/user-details.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +25,7 @@ import { StepperoverviewComponent } from './Component/stepperoverview/stepperove
  
     QualificationDetailsComponent,
     PreviewComponent,
-    UserDetailsComponent,
+    // UserDetailsComponent,
     StepperoverviewComponent
   ],
   imports: [

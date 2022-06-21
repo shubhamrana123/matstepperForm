@@ -10,14 +10,14 @@ export class AddressDetailsComponent implements OnInit ,AfterViewInit,OnChanges 
   @Input() parentDataFormValue:any
 @Output() childData:any = new EventEmitter()
 childMessage="this is child data"
-basicAndAddressDetails={}
+basicAndAddressFormDetails:any
   addressDetailsForm: FormGroup;
   submitted = false;
   isLinear=false;
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log(this.parentDataFormValue);
+    // console.log(this.parentDataFormValue);
     this.childData.emit(this.childMessage);
     
     this.addressDetailsForm = this.formbuilder.group({
@@ -38,7 +38,7 @@ basicAndAddressDetails={}
   }
   submit() {
     this.submitted = true;
-    console.log(this.addressDetailsForm.value);
+    // console.log(this.addressDetailsForm.value);
 
   }
   get f() {

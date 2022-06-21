@@ -15,15 +15,21 @@ export class StepperoverviewComponent implements OnInit,AfterViewInit {
   @ViewChild(AddressDetailsComponent) addressDetailsComponent:AddressDetailsComponent;
   @ViewChild(QualificationDetailsComponent) QualificationDetailsComponent: QualificationDetailsComponent;
   @ViewChild(PreviewComponent) previewComponent:PreviewComponent;
+  userData:any
+  addressData:any
+  qualificationValue:any;
+  allFormData:any
   constructor(private cdref:ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
     this.cdref.detectChanges();
+  
+    
   }
   get step1() {
-   
+  //  this.basicDetailsComponent.parentValue
     return this.basicDetailsComponent ? this.basicDetailsComponent.basicDetailsForm : null;
   }
 
@@ -37,21 +43,43 @@ export class StepperoverviewComponent implements OnInit,AfterViewInit {
   get step4() {
     return this.previewComponent ? this.previewComponent.previewForm : null;
   }
+  userDatas(event){
+    alert("hi")
+console.log(event);
+
+  }
   nextTab(stepper:MatStepper){
+    console.log(this.userData);
+    this.basicDetailsComponent.onDataChange.emit(this.basicDetailsComponent.basicDetailsForm.value)
+    console.log(this.userData);
+    this.addressDetailsComponent.childData.emit(this.addressDetailsComponent.addressDetailsForm.value)
+    console.log(this.addressData);
+  
+    this.QualificationDetailsComponent.childData.emit( this.QualificationDetailsComponent.qualificationDetailsForm.value)
+    console.log(this.qualificationValue);
+   this.allFormData= {...this.userData,...this.addressData,...this.qualificationValue}
     this.basicDetailsComponent.parentValue=this.basicDetailsComponent.basicDetailsForm.value
-   console.log(  this.basicDetailsComponent.parentValue);
+  //  console.log(  this.basicDetailsComponent.parentValue);
    console.log(this.addressDetailsComponent.parentDataFormValue);
-   if(this.step2){
-     alert('hi')
+   
+
+    // console.log(this.addressDetailsComponent.addressDetailsForm.value);
+    // console.log(this.addressDetailsComponent.parentDataFormValue);
     
-     this.addressDetailsComponent.basicAndAddressDetails={...this.addressDetailsComponent.parentDataFormValue}
-  this.addressDetailsComponent.parentDataFormValue=this.addressDetailsComponent.basicAndAddressDetails
-     console.log(this.addressDetailsComponent.basicAndAddressDetails);
+    this.addressDetailsComponent.basicAndAddressFormDetails=this.addressDetailsComponent.parentDataFormValue;
+
+    // console.log( this.addressDetailsComponent.basicAndAddressFormDetails);
+    
+    console.log( this.QualificationDetailsComponent.addressFormValue);
+    
+  //    this.addressDetailsComponent.basicAndAddressFormDetails={...this.addressDetailsComponent.parentDataFormValue}
+  // this.addressDetailsComponent.parentDataFormValue=this.addressDetailsComponent.basicAndAddressFormDetails
+  //    console.log(this.addressDetailsComponent.basicAndAddressFormDetails);
   
 
-   }
    
-    console.log(this.basicDetailsComponent.childMessage);
+   
+    // console.log(this.basicDetailsComponent.childMessage);
     
 stepper.next()
 

@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-qualification-details',
@@ -7,6 +8,7 @@ import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
   styleUrls: ['./qualification-details.component.css']
 })
 export class QualificationDetailsComponent implements OnInit,OnChanges {
+  @Output() childData:any = new EventEmitter<any>()
   @Input() addressFormValue:any
   qualificationDetailsForm: FormGroup = this.formbuilder.group({
     highestDegree: ['', Validators.required],
@@ -19,10 +21,9 @@ export class QualificationDetailsComponent implements OnInit,OnChanges {
   ngOnInit(): void {
     
   }
-  ngOnChanges(changes: SimpleChanges): void {
-      console.log(this.addressFormValue);
-      
-  }
+  ngOnChanges(): void {
+    console.log(this.addressFormValue);
+    }
   submit() {
     this.submitted = true;
   }

@@ -5,7 +5,7 @@ import { BasicDetailsComponent } from './Component/basic-details/basic-details.c
 import { PreviewComponent } from './Component/preview/preview.component';
 import { QualificationDetailsComponent } from './Component/qualification-details/qualification-details.component';
 import { StepperoverviewComponent } from './Component/stepperoverview/stepperoverview.component';
-import { UserDetailsComponent } from './Component/user-details/user-details.component';
+// import { UserDetailsComponent } from './Component/user-details/user-details.component';
 
 const routes: Routes = [
   // {path:'',component:BasicDetailsComponent},
@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'address',component:AddressDetailsComponent},
   {path:'qualification',component:QualificationDetailsComponent},
   {path:'preview',component:PreviewComponent},
-  {path:'user',component:UserDetailsComponent},
+  // {path:'user',component:UserDetailsComponent},
   {path:'stepper',component:StepperoverviewComponent}
 ];
 

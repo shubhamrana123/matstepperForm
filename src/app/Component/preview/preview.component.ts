@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export interface PeriodicElement {
   name: string;
@@ -25,6 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./preview.component.css']
 })
 export class PreviewComponent implements OnInit {
+  @Input() parentData:any
   submitted = false;
   isLinear=false;
   previewForm: FormGroup = this.formbuilder.group({
@@ -44,6 +45,8 @@ export class PreviewComponent implements OnInit {
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    // console.log(this.parentData);
+    
   }
   submit() {
     this.submitted = true;
