@@ -69,8 +69,9 @@
     <div *ngIf="f.pincode.errors.required">PinCode is Required</div>
 </div>
         <div>
-            <button mat-button matStepperPrevious type="button">Previous</button>
-          <button mat-button matStepperNext>Next</button>
+            <!-- <button mat-button matStepperPrevious type="button">Previous</button> -->
+          <!-- <button mat-button matStepperNext>Next</button> -->
         </div>
       </form>
     </mat-step>
+<app-qualification-details [addressFormValue]="parentDataFormValue"></app-qualification-details>

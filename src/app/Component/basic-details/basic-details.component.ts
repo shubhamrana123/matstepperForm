@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./basic-details.component.css']
 })
 export class BasicDetailsComponent implements OnInit {
-parentValue="basicDetailsForm.value";
+  @Output() onDataChange: EventEmitter<any> = new EventEmitter();
+parentValue="dssd";
 childMessage="";
   basicDetailsForm: FormGroup = this.fb.group({
     firstName: ['', Validators.required],
@@ -21,11 +22,16 @@ childMessage="";
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.onDataChange.emit(this.basicDetailsForm.value);
+    // console.log(this.parentValue);
+    
   }
   submit() {
     this.submitted = true;
     if (this.basicDetailsForm?.valid) {
-      // console.log(this.basicDetailsForm?.value);
+      // console.log(this.basicDetailsForm?.value)
+      console.log(this.childMessage);
+      
 // this.router.navigate(['address'])
     }
     else {
@@ -34,7 +40,7 @@ childMessage="";
     }
   }
   goForward(stepper:MatStepper){
-    // alert('hi')
+   
 stepper.next()
   }
   get f() {

@@ -4,6 +4,7 @@ import { BasicDetailsComponent } from '../basic-details/basic-details.component'
 import { PreviewComponent } from '../preview/preview.component';
 import { QualificationDetailsComponent } from '../qualification-details/qualification-details.component';
 import {ChangeDetectorRef } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
 @Component({
   selector: 'app-stepperoverview',
   templateUrl: './stepperoverview.component.html',
@@ -35,5 +36,27 @@ export class StepperoverviewComponent implements OnInit,AfterViewInit {
   }
   get step4() {
     return this.previewComponent ? this.previewComponent.previewForm : null;
+  }
+  nextTab(stepper:MatStepper){
+    this.basicDetailsComponent.parentValue=this.basicDetailsComponent.basicDetailsForm.value
+   console.log(  this.basicDetailsComponent.parentValue);
+   console.log(this.addressDetailsComponent.parentDataFormValue);
+   if(this.step2){
+     alert('hi')
+    
+     this.addressDetailsComponent.basicAndAddressDetails={...this.addressDetailsComponent.parentDataFormValue}
+  this.addressDetailsComponent.parentDataFormValue=this.addressDetailsComponent.basicAndAddressDetails
+     console.log(this.addressDetailsComponent.basicAndAddressDetails);
+  
+
+   }
+   
+    console.log(this.basicDetailsComponent.childMessage);
+    
+stepper.next()
+
+  }
+  previousTab(stepper:MatStepper){
+    stepper.previous()
   }
 }
