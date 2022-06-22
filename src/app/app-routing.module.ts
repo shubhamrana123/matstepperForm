@@ -8,7 +8,7 @@ import { StepperoverviewComponent } from './Component/stepperoverview/stepperove
 // import { UserDetailsComponent } from './Component/user-details/user-details.component';
 
 const routes: Routes = [
-  // {path:'',component:BasicDetailsComponent},
+  {path:'',component:StepperoverviewComponent},
   {path:'basic',component:BasicDetailsComponent},
   {path:'address',component:AddressDetailsComponent},
   {path:'qualification',component:QualificationDetailsComponent},
