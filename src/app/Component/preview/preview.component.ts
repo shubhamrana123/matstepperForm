@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export interface PeriodicElement {
   name: string;
@@ -24,7 +24,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.css']
 })
-export class PreviewComponent implements OnInit {
+export class PreviewComponent implements OnInit,AfterViewInit{
   @Input() parentData:any
   submitted = false;
   isLinear=false;
@@ -40,13 +40,16 @@ export class PreviewComponent implements OnInit {
     highestDegree: ['', Validators.required],
     year: ['', Validators.required]
   })
-  displayedColumns: string[] = ['position', 'firstName', 'lastName', 'email','address','phoneNo','city','state','pincode','highestDegree','year'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'email','address','phoneNo','city','state','pincode','highestDegree','year'];
   dataSource = ELEMENT_DATA;
-  constructor(private formbuilder: FormBuilder) { }
+  constructor(private formbuilder: FormBuilder,private cdref:ChangeDetectorRef) { }
 
   ngOnInit(): void {
     // console.log(this.parentData);
     
+  }
+  ngAfterViewInit(): void {
+    this.cdref.detectChanges();
   }
   submit() {
     this.submitted = true;

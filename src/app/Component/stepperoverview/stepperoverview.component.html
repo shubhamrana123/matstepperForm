@@ -32,13 +32,13 @@
                   <ng-template matStepLabel>QualiFication Details</ng-template>
                 <app-qualification-details (childData)="qualificationValue=$event"></app-qualification-details>
                 <button (click)="previousTab(stepper)">Previous</button>
-                <button (click)="nextTab(stepper)">Next</button>
+                <button (click)="nextTabs(stepper)">Next</button>
                 </mat-step>
                 
                   <mat-step [stepControl]="step4">
   
                     <ng-template matStepLabel>Preview</ng-template>
-                  <app-preview [parentData]="allFormData"></app-preview>
+                  <app-preview *ngIf="submitted" [parentData]="allFormData"></app-preview>
                   <button (click)="previousTab(stepper)">Previous</button>
                   <button >Submit</button>
                   </mat-step>
@@ -52,4 +52,3 @@
   
     </div>
   </div>
-{{userData}}
